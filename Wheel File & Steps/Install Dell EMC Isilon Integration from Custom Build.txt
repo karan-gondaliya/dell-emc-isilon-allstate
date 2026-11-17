@@ -1,0 +1,71 @@
+================================================================================
+  INSTALL DELL EMC ISILON INTEGRATION FROM CUSTOM BUILD
+  Crest Data Systems -- Dell EMC Isilon Custom Build
+================================================================================
+
+OVERVIEW
+--------
+  These steps install the latest Dell EMC Isilon custom integration build onto
+  the Datadog Agent, replacing any previously installed version.
+
+  All commands must be run as Administrator.
+
+--------------------------------------------------------------------------------
+
+STEP 1 -- Open Command Prompt or PowerShell or Terminal (Linux) as Administrator
+-------------------------------------------------------------
+  Right-click Command Prompt or PowerShell or Terminal (Linux) and select "Run as administrator".
+
+
+STEP 2 -- Uninstall the Existing Integration
+---------------------------------------------
+  Run the appropriate command for your shell:
+
+  Linux:
+    sudo -Hu dd-agent -- datadog-agent integration remove datadog-crest_data_systems_dell_emc_isilon -r
+
+  PowerShell:
+    & "$env:ProgramFiles\Datadog\Datadog Agent\bin\agent.exe" `
+        integration remove datadog-crest_data_systems_dell_emc_isilon
+
+  CMD:
+    "C:\Program Files\Datadog\Datadog Agent\bin\agent.exe" ^
+        integration remove datadog-crest_data_systems_dell_emc_isilon
+
+
+STEP 3 -- Navigate to the Folder Containing the .whl File
+----------------------------------------------------------
+  Change directory to where the following file is located:
+
+    datadog_crest_data_systems_dell_emc_isilon-3.6.0-py3-none-any.whl
+
+
+STEP 4 -- Install the New Build
+--------------------------------
+  Linux:
+    sudo -Hu dd-agent -- datadog-agent integration install --third-party -w datadog_crest_data_systems_dell_emc_isilon-3.6.0-py3-none-any.whl -r
+
+  PowerShell:
+    & "$env:ProgramFiles\Datadog\Datadog Agent\bin\agent.exe" `
+        integration install -w datadog_crest_data_systems_dell_emc_isilon-3.6.0-py3-none-any.whl -r
+
+  CMD:
+    "C:\Program Files\Datadog\Datadog Agent\bin\agent.exe" ^
+        integration install -w datadog_crest_data_systems_dell_emc_isilon-3.6.0-py3-none-any.whl -r
+
+
+STEP 5 -- Restart the Datadog Agent
+-------------------------------------
+  Linux:
+    sudo systemctl restart datadog-agent
+
+  Windows:
+    Restart the agent from the Datadog Agent Manager UI.
+
+--------------------------------------------------------------------------------
+
+NOTE
+----
+  The installation steps above will not alter the existing conf.yaml file.
+
+================================================================================
