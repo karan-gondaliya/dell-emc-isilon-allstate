@@ -1,0 +1,68 @@
+================================================================================
+  IMPORT DELL EMC ISILON DASHBOARDS
+  Crest Data Systems -- Dell EMC Isilon Custom Build
+================================================================================
+
+DASHBOARD FILES INCLUDED
+-------------------------
+  1. dell_emc_isilon_nfs_export_stats.json
+       -> Dell EMC Isilon - NFS Export Stats
+
+--------------------------------------------------------------------------------
+
+STEP 1 -- Log In to Datadog
+-----------------------------
+  Log in to your Datadog account.
+
+
+STEP 2 -- Navigate to Dashboards
+----------------------------------
+  From the left-hand menu, navigate to Dashboards.
+
+
+STEP 3 -- Create a New Dashboard
+----------------------------------
+  Click the "New Dashboard" button in the top-right corner.
+
+
+STEP 4 -- Click on Blank Dashboard
+------------------------------------
+  Select "Blank Dashboard" from the options shown.
+
+
+STEP 5 -- Open Settings
+------------------------
+  Inside the new dashboard, click the gear icon (Settings) in the
+  top-right corner of the editor.
+
+
+STEP 6 -- Import Dashboard JSON
+--------------------------------
+  1. Select "Import dashboard JSON".
+  2. Open the JSON file, copy its full contents.
+  3. Paste the contents into the import dialog.
+  4. Click "Yes, Replace".
+
+
+STEP 7 -- Save the Dashboard
+------------------------------
+  Click "Save Changes" to save the imported dashboard.
+
+
+STEP 8 -- Check the Zone Filter
+---------------------------------
+  Use the "Zone" and "ExportID" filters at the top of the dashboard together
+  to view a single NFS export. Zone values are shown in lowercase.
+
+--------------------------------------------------------------------------------
+
+NOTE
+----
+  Make sure your Datadog account has the necessary permissions to create
+  and edit dashboards.
+
+  If you already imported an earlier version of the "Dell EMC Isilon - NFS
+  Export Stats" dashboard, this import creates a new dashboard. You can delete
+  the older copy once the new one shows data.
+
+================================================================================
