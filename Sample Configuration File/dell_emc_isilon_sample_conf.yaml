@@ -1,0 +1,30 @@
+init_config:
+instances:
+
+  - ip_address: <CLUSTER_1_IP_ADDRESS>
+    username: <USERNAME>
+    password: <PASSWORD>
+    port: '8080'
+    min_collection_interval: 120
+
+    ## @param zone_export_ids - mapping - optional
+    ## Access zones to collect NFS export statistics from, with the export IDs of each zone.
+    ##   ""       collects all exports of the zone.
+    ##   "1,3"    collects only export IDs 1 and 3 of the zone.
+    ##   "-2"     collects all exports of the zone except export ID 2.
+    ## Only the listed access zones are collected. Add  System: ""  to also collect the System zone.
+    ## An access zone cannot have both export IDs to collect and export IDs to exclude.
+    ## It cannot be used together with export_ids, so remove export_ids if it is set.
+    #
+    zone_export_ids:
+      NGIC-NFS: ""
+      NGLS-NFS: ""
+
+  - ip_address: <CLUSTER_2_IP_ADDRESS>
+    username: <USERNAME>
+    password: <PASSWORD>
+    port: '8080'
+    min_collection_interval: 120
+    zone_export_ids:
+      NGIC-NFS: ""
+      NGLS-NFS: ""
