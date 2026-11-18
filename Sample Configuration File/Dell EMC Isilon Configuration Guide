@@ -1,0 +1,49 @@
+================================================================================
+  CONF.YAML CHANGES IN DELL EMC ISILON CUSTOM BUILD (v3.6.0)
+  Crest Data Systems -- Dell EMC Isilon Custom Build
+================================================================================
+
+WHAT CHANGED
+------------
+  One new option, zone_export_ids, collects NFS export statistics from the
+  access zones you list. All other options are unchanged. The installation
+  does not change your existing conf.yaml, so add the option yourself.
+
+HOW TO USE
+----------
+  1. Add zone_export_ids to the instance of each cluster in conf.yaml:
+
+       instances:
+         - ip_address: <CLUSTER_IP_ADDRESS>
+           username: <USERNAME>
+           password: <PASSWORD>
+           port: '8080'
+           min_collection_interval: 120
+           zone_export_ids:
+             NGIC-NFS: ""
+             NGLS-NFS: ""
+
+  2. Restart the Datadog Agent.
+
+VALUE OF EACH ACCESS ZONE
+-------------------------
+  ""        Collect all exports of the zone.
+  "1,3"     Collect only export IDs 1 and 3 of the zone.
+  "-2,-4"   Collect all exports of the zone except export IDs 2 and 4.
+
+  Export IDs are unique only within an access zone, so they are set per zone.
+
+RULES
+-----
+  - Only the listed zones are collected. Add  System: ""  to also collect the
+    System zone.
+  - A zone cannot have both export IDs to collect and export IDs to exclude.
+  - zone_export_ids cannot be used together with export_ids. If export_ids is
+    set, remove it and set the export IDs per zone instead.
+
+IN DATADOG
+----------
+  NFS metrics have a new tag, cds.emc.isilon.zone (shown in lowercase), and
+  the NFS Export Stats dashboard has a new Zone filter.
+
+================================================================================
